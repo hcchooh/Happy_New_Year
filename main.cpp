@@ -60,9 +60,9 @@ void main()
 	srand(time(0));
 
 	// 播放背景音乐
-	mciSendString("open ./fire/小幸运.mp3 alias bk", 0, 0, 0);
+	mciSendString("open ./fire/纸短情长.mp3 alias bk", 0, 0, 0);
 	mciSendString("play bk repeat", 0, 0, 0);
-
+	Sleep(2000);
 	welcome();
 
 	DWORD t1 = timeGetTime();			// 筛选烟花计时
@@ -93,7 +93,7 @@ void main()
 			}
 		}
 		Chose(t1);			// 筛选烟花
-		Shoot();			// 发射烟花
+		Shoot();			    // 发射烟花
 		Show(pMem);			// 绽放烟花
 		Style(st1);			// 花样发射
 		FlushBatchDraw();	// 显示前面的所有绘图操作
@@ -112,8 +112,8 @@ void welcome()
 		int y = 200 + int(180 * cos(PI * 2 * i / 60));
 		cleardevice();
 		settextstyle(i, 0, "楷体");
-		outtextxy(x-80, y, "浪漫表白日");
-		outtextxy(x-10, y+100, "献给挚爱某某某");
+		outtextxy(x-80, y, "I Love You");
+		outtextxy(x-10, y+100, "献给挚爱靳瑶");
 		Sleep(25);
 	}
 
@@ -349,6 +349,7 @@ void Show(DWORD* pMem)
 			}
 			Fire[i].t1 = Fire[i].t2;
 		}
+
 
 		// 如果该型号炮花可爆炸，根据当前爆炸半径画烟花，颜色值接近黑色的不输出。
 		if (Fire[i].draw)
